@@ -233,16 +233,16 @@ form[name="rapp"] .meny a:first-child {
   }
 }
 .rapp__col--1 {
+  flex: 0 1;
   background: var(--grey3);
   padding: 10px;
 }
 .rapp__col--2 {
+  flex: 1 0;
   padding: 10px;
   overflow: auto;
 }
-
 .rapp__entries {
-  
   border-collapse: collapse;
   border-right: 20px solid #fff;
 }
@@ -267,6 +267,13 @@ form[name="rapp"] .meny a:first-child {
   padding-left: 1px;
   padding-right: 1px;
 }
+.rapp__entry input {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.rapp__entry td:nth-child(1) input {
+  width: 3.8em;
+}
 .rapp__buttons td {
   text-align: left;
 }
@@ -282,6 +289,16 @@ input[value="Save"] {
   width: 20em;
   background: transparent !important;
   font-size: var(--font-size-small);
+}
+@media (max-width: 766px) {
+  .alma {
+    font-size: var(--font-size);
+  }
+}
+@media (min-width: 1200px) {
+  .alma {
+    font-size: var(--font-size);
+  }
 }
 .alma h2 {
   margin: 0;
@@ -444,7 +461,7 @@ td[bgcolor="red"] {
     // remove autocompletes, they just misinterpret
     let inputs = document.querySelectorAll('form[name="rapp"] input');
     inputs.forEach((input, i) => {
-      input.setAttribute('autocomplete','no');
+      input.setAttribute('autocomplete','off');
     });
 
     // calendar changes
@@ -496,7 +513,7 @@ td[bgcolor="red"] {
     // remove autocompletes, they just misinterpret
     let inputs = document.querySelectorAll('input');
     inputs.forEach((input, i) => {
-      input.setAttribute('autocomplete','no');
+      input.setAttribute('autocomplete','off');
     });
   }
 
