@@ -3,6 +3,7 @@ javascript:function loadScript(scriptURL){ var scriptElem = document.createEleme
 */
 
 var styleMarathon = function() {
+  console.log("%cStyling Marathon now!", "color:#fff;background:#3399ff;padding:0.25em 0.5em;font-weight:bold;");
   const css = `
 /* imports */
 
@@ -565,6 +566,7 @@ td[bgcolor="red"] {
       input.setAttribute('autocomplete','off');
     });
   }
+  console.log("%cStyling Marathon done.", "color:#fff;background:#3399ff;padding:0.25em 0.5em;font-weight:bold;");
 
 };
 styleMarathon();
