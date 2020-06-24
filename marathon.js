@@ -2,7 +2,7 @@
 javascript:function loadScript(scriptURL){ var scriptElem = document.createElement('SCRIPT'); scriptElem.setAttribute('language', 'JavaScript'); scriptElem.setAttribute('src', scriptURL); document.body.appendChild(scriptElem)}loadScript('https://raw.githubusercontent.com/pixelthing/marathon-styles-favelet/master/marathon.js');
 */
 
-(function() {
+var styleMarathon = function() {
   const css = `
 /* imports */
 
@@ -88,12 +88,30 @@ input[type="submit"] {
   box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.15);
   font-weight: bold;
 }
-input[type="submit"] {
+input.knapp:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background: #777;
+}
+input.knapp:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  color: #333;
+  background: #ccc;
+}
+input[type="submit"],
+input[value="Save"] {
   color: var(--ok-contrast);
   background: var(--ok);
 }
-input[type="submit"]:active {
+input[type="submit"]:hover,
+input[value="Save"]:hover {
   background: var(--ok-dark);
+}
+input[type="submit"]:active,
+input[value="Save"]:active {
+  color: var(--ok);
+  background: var(--ok-contrast);
 }
 input[type="checkbox"] {
   width: 0.8em;
@@ -227,7 +245,7 @@ form[name="rapp"] .meny a:first-child {
   background: #fff;
   overflow: hidden;
 }
-@media (max-width: 766px) {
+@media (max-width: 599px) {
   .rapp__row--3 {
     flex-direction: column;
   }
@@ -259,6 +277,14 @@ form[name="rapp"] .meny a:first-child {
 .rapp__entries tr:nth-child(even) {
   background: #f6f6f6;
 }
+/*
+.rapp__entries .rad:nth-child(1) a,
+.rapp__entries .rad:nth-child(2) a,
+.rapp__entries .rad:nth-child(3) a,
+.rapp__entries .rad:nth-child(4) a {
+  text-decoration: underline !important;
+}
+*/
 .rapp__entry--locked,
 .rapp__entry--locked a {
   color: #999 !important;
@@ -274,13 +300,36 @@ form[name="rapp"] .meny a:first-child {
 .rapp__entry td:nth-child(1) input {
   width: 3.8em;
 }
+.rapp__buttons {
+  background: transparent !important;
+}
 .rapp__buttons td {
   text-align: left;
+  border-top: 2px solid #666 !important;
+  padding-top: 20px !important;
+  padding-left: 0;
 }
- 
-input[value="Save"] {
-  color: var(--ok-contrast);
-  background: var(--ok);
+.rapp__buttons .knapp {
+  float: left;
+  margin-right: 30px;
+}
+a[href^="javascript:radera"] {
+  display: block;
+  width: 42px;
+  height: 42px;
+  order-radius: 1000px;
+  color: var(--error);
+  background: var(--error-contrast);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.15);
+}
+a[href^="javascript:radera"]:before {
+  content: '✖';
+  line-height: 42px;
+}
+img[src="/tidpics/del.gif"] {
+  display: none;
 }
 
 /* calendar */
@@ -290,7 +339,7 @@ input[value="Save"] {
   background: transparent !important;
   font-size: var(--font-size-small);
 }
-@media (max-width: 766px) {
+@media (max-width: 599px) {
   .alma {
     font-size: var(--font-size);
   }
@@ -517,4 +566,5 @@ td[bgcolor="red"] {
     });
   }
 
-})();
+};
+styleMarathon();
