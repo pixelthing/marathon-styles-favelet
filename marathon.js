@@ -1,8 +1,9 @@
 /*
+// old style bookmarklet code (no longer works in most browsers)
 javascript:function loadScript(scriptURL){ var scriptElem = document.createElement('SCRIPT'); scriptElem.setAttribute('language', 'JavaScript'); scriptElem.setAttribute('src', scriptURL); document.body.appendChild(scriptElem)}loadScript('https://raw.githubusercontent.com/pixelthing/marathon-styles-favelet/master/marathon.js');
 */
 
-var styleMarathon = function() {
+(function() {
   console.log("%cStyling Marathon now!", "color:#fff;background:#3399ff;padding:0.25em 0.5em;font-weight:bold;");
   const css = `
 /* imports */
@@ -568,5 +569,4 @@ td[bgcolor="red"] {
   }
   console.log("%cStyling Marathon done.", "color:#fff;background:#3399ff;padding:0.25em 0.5em;font-weight:bold;");
 
-};
-styleMarathon();
+})();
